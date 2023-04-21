@@ -66,12 +66,11 @@ function findById(id) {
 function add(user) {
   return db('users')
     .insert(user)
-    .then(([id]) => { // eslint-disable-line
+    .then(([id]) => { 
       return findById(id)
     })
 }
 
 function remove(id) {
-  // returns removed count
   return db('users').where({ id }).del()
 }
